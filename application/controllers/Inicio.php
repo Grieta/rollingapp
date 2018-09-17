@@ -98,4 +98,14 @@ class Inicio extends CI_Controller {
         );
         $this->load->view('inventario', $pagina);
     }
+        public function rinventario()
+    {
+        $this->load->model('Articulos');
+        $materiaprima = $this->Articulos->obtMateriaPrima();
+        $pagina = array(
+            'pagina' => 'inventario',
+            'materiaprima'=> $materiaprima
+        );
+        $this->load->view('rinventario', $pagina);
+    }
 }

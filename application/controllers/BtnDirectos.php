@@ -284,4 +284,12 @@ class BtnDirectos extends CI_Controller {
                 break;
         }
     }
+    public function inventarios($acc)
+    {
+        $post_line = $this->input->post();
+        $this->load->model('Inventario');
+        
+        return $this->Inventario->add_mp($post_line,$acc);
+
+            }
 }

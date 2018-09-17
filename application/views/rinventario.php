@@ -9,11 +9,11 @@
 <main class="app-content">
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-dashboard"></i>Añadir Inventario</h1>
+            <h1><i class="fa fa-dashboard"></i>Remover Inventario</h1>
         </div>
         <ul class="app-breadcrumb breadcrumb">
             <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-            <li class="breadcrumb-item"><a href="#">Añadir Inventario</a></li>
+            <li class="breadcrumb-item"><a href="#">Remover Inventario</a></li>
         </ul>
     </div>
     <div class="row">
@@ -30,7 +30,7 @@
 
                             }else{
                         ?>
-                        <li id='mp_<?= $mp->idmateriaprima ?>'data-id='<?= $mp->idmateriaprima ?>' class='productos' style="vertical-align: middle;padding: 20px 0;"><p><?= $mp->mp_nombre ?></p><br><b><p class="pri"><?= $mp->mp_cant ?></p>+<p class="seg">0</p></b></li>
+                        <li id='mp_<?= $mp->idmateriaprima ?>'data-id='<?= $mp->idmateriaprima ?>' class='productos' style="vertical-align: middle;padding: 20px 0;"><p><?= $mp->mp_nombre ?></p><br><b><p class="pri"><?= $mp->mp_cant ?></p>-<p class="seg">0</p></b></li>
                         <?php
                             }
                         }
@@ -45,8 +45,8 @@
         <div class="col-md-4">
             <div class="tile">
                 <div class="tile-title-w-btn">
-              <h3 class="title">Añadir Inventario</h3>
-              <p><button id="hacer_inv" class="btn btn-primary icon-btn"><i class="fa fa-plus"></i>Añadir</button></p>
+              <h3 class="title">Remover Inventario</h3>
+              <p><button id="hacer_inv" class="btn btn-primary icon-btn"><i class="fa fa-plus"></i>Remover</button></p>
             </div>
                 <div class="table-responsive table-striped">
                     <table class="table" id="tablaped">
@@ -74,22 +74,26 @@
             <button type="button" style="text-align:  right;margin-right:  10px;" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <div class="row">
                     <div class="col-md-12">
-            <form id="newinv">
-                  <div class="form-group">
+                        <div class="form-group">
+                    <label for="motivo">Motivo</label>
+                    <input value="0" class="form-control" name="motivo" id="motivo" type="text" aria-describedby="motivohelp" placeholder="Ejem: Error de tipeo Inventario #30"><small class="form-text text-muted" id="motivohelp">Detalle el Motivo del Egreso.</small>
+                  </div>
+            <form id="newinv" class="">
+                  <div class="form-group hidden">
                     <label for="base0">Base 0%</label>
-                    <input class="form-control" name="base0" id="base0" type="number" aria-describedby="base0help" placeholder="Ejem: 10.50"><small class="form-text text-muted" id="base0help">Base de la Factura con 0% de iva.</small>
+                    <input value="0" class="form-control" name="base0" id="base0" type="number" aria-describedby="base0help" placeholder="Ejem: 10.50"><small class="form-text text-muted" id="base0help">Base de la Factura con 0% de iva.</small>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group hidden">
                     <label for="base12">Base <?= $this->session->userdata('iva') ?>%</label>
-                    <input class="form-control" name="base12" id="base12" type="number" aria-describedby="base12help" placeholder="Ejem: 10.50"><small class="form-text text-muted" id="base12help">Base de la Factura con <?= $this->session->userdata('iva') ?>% de iva no agregado.</small>
+                    <input value="0" class="form-control" name="base12" id="base12" type="number" aria-describedby="base12help" placeholder="Ejem: 10.50"><small class="form-text text-muted" id="base12help">Base de la Factura con <?= $this->session->userdata('iva') ?>% de iva no agregado.</small>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group hidden">
                     <label for="iva">Iva <?= $this->session->userdata('iva') ?>%</label>
-                    <input class="form-control" name="iva" id="iva" type="number" aria-describedby="ivahelp" placeholder="Ejem: 2.50"><small class="form-text text-muted" id="ivahelp">Iva <?= $this->session->userdata('iva') ?>% de la factura.</small>
+                    <input value="0" class="form-control" name="iva" id="iva" type="number" aria-describedby="ivahelp" placeholder="Ejem: 2.50"><small class="form-text text-muted" id="ivahelp">Iva <?= $this->session->userdata('iva') ?>% de la factura.</small>
                   </div>
-                <div class="form-group">
+                <div class="form-group hidden">
                     <label for="total">Total</label>
-                    <input class="form-control" name="total" id="total" type="number" aria-describedby="totalhelp" placeholder="Ejem: 150.50"><small class="form-text text-muted" id="totalhelp">El Total de la Factura.</small>
+                    <input value="0" class="form-control" name="total" id="total" type="number" aria-describedby="totalhelp" placeholder="Ejem: 150.50"><small class="form-text text-muted" id="totalhelp">El Total de la Factura.</small>
                   </div>
                   <div class="modal-footer">
               <button class="btn btn-primary" type="submit">Subir Inventario</button>
@@ -137,8 +141,9 @@ $(document).ready(function () {
                 var mp = $('#tablaped').bootstrapTable('getData');
                 $.ajax({
                       type: "POST",
-                      url: "<?= base_url(); ?>BtnDirectos/inventarios/add",
-                      data: {datos: form,materialist: JSON.stringify(mp)},
+                      url: "<?= base_url(); ?>BtnDirectos/inventarios/rem",
+                      data: {datos: form,materialist: JSON.stringify(mp),motivo
+                        :$('#motivo').val()},
                       success: success,
                     });
                 function success(data) {

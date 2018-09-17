@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="9d241938-3f36-4178-a937-f4d88512d84c" name="Naturlifeec" url="http://naturlifeec.com">
+        <fileTransfer host="naturlifeec.com" port="21" rootFolder="/public_html/vmapp">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" forceListCommand="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

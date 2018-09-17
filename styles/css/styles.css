@@ -1,0 +1,248 @@
+    .text-factura
+    {
+        font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+            font-size: 9px;
+    }
+        .text-factura-i
+    {
+        font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+        display: inline;
+        margin: 0;
+            font-size: 9px;
+    }
+    .quitar
+    {
+        cursor: pointer;
+    }
+    .hidden{
+        display: none !important;
+    }
+ .centrartdhori 
+{
+    text-align: left !important;
+    vertical-align: middle !important;
+}
+.checkss  {
+    background: white;
+
+}
+.tableta_imprimir th {
+    padding: 0 !important;
+    text-align: center;
+}
+.tableta_imprimir td {
+    padding: 0 !important;
+     text-align: center;
+}
+.checkss-label  {
+    margin-top: 6px;
+    margin-left: 10px;
+}
+.checkss .active  {
+    background: #007065;
+}
+.checkss.btn span.fa {
+    opacity: 0;
+    margin: 0;
+}
+
+.checkss.btn.active span.fa {
+    opacity: 1;
+}
+.no-padding{
+    padding: 0px;
+}
+.padding-special{
+    padding: 20px 20px 20px 20px;
+        transition: all 0.3s ease;
+    max-height: 500px;
+    overflow-x: auto;
+
+}
+ul.list-categoria{
+    
+    text-align: center;
+    margin:0;
+    
+padding:0;
+    overflow-x: auto;
+    display: flex;
+    background: #dfe6e8;
+    color: gray;
+  
+
+}
+ul.list-categoria .active{
+    
+    background: white;
+    color: #009688;
+    font-weight: bold;
+border-width:0px 1px 0px 1px;
+border-style:solid solid solid solid;
+border-color:#c3c3c3 #c3c3c3 #c3c3c3 #c3c3c3;
+}
+ul.list-categoria li{
+    padding: 30px;
+    font-size: 1.1em;
+    font-weight: 400;
+    border-bottom: 1px solid #dfe6e8;
+    border-left: 0px solid transparent;
+    color: #666;
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+ul.list-categoria li div{
+    margin: 0 auto;
+    align-items: center;
+    display:inline-block;
+float:left;
+    white-space: normal;
+  vertical-align: top;
+}
+
+ul.list-productos{
+        grid-gap: 5px;
+
+        margin:5px 0px;
+padding:0;
+    white-space: nowrap;
+    overflow-y: auto;
+     display: grid;
+         grid-template-columns: repeat(3, 1fr);
+}
+
+ul.list-productos li{
+
+    background: #EF5350;
+    padding: 5px 10px;
+    border-bottom-width: 2px;
+    text-align: center;
+    width: 100%;
+    min-height: 70px;
+    cursor: pointer;
+    border-color: #e7edee;
+    color:white;
+    display:inline-block;
+    float:left;
+    white-space: normal;
+    vertical-align: top;
+    margin: 0px 2.5px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select:none;
+}
+ul.list-productos li:active{
+    background: #B71C1C;
+
+    
+}
+.sel{
+    background: rgb(97, 97, 224) !important;
+}
+ul.list-productos li p{
+display: inline;
+font-size: 0.9em;    
+}
+i.fa-bell,i.fa-bell-o {
+    position: relative;
+    font-size: 2em;
+    cursor: pointer;
+}
+span.fa-comment {
+    position: absolute;
+    font-size: 0.7em;
+    top: -7px;
+    color: red;
+    right: -8px;
+}
+span.num {
+    position: absolute;
+    font-size: 0.4em;
+    top: -6.8px;
+    color: #fff;
+    right: -3px;
+}
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 1024px) {
+ul.list-productos li{
+    
+}
+    ul.list-categoria li{
+        }
+}
+/*  */
+@media screen and (max-width: 955px) {
+ul.list-productos li {
+
+}
+        ul.list-categoria li{
+        }
+}
+ul.list-productos-horizontal{
+    margin:0;
+    padding:0;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+ul.list-productos-horizontal li{
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+    background: #EF5350;
+    color:white;
+    display:inline-block;
+    float:left;
+    padding:10px 10px;
+    white-space: normal;
+    vertical-align: top;
+    margin: 2.5px 0px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select:none;
+}
+ul.list-productos-horizontal li:active{
+    background: #B71C1C;
+
+
+}
+ul.list-productos-horizontal li p{
+    display: inline;
+    font-size: 0.9em;
+}
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 770px) {
+ul.list-productos li{
+    
+}
+            ul.list-categoria li{
+                margin: 0px;
+        }
+}
+@media screen and (max-width: 640px) {
+ul.list-productos li{
+    
+}
+        ul.list-categoria li{
+                            margin: 0px;
+
+        }
+}
+@media screen and (max-width: 410px) {
+ul.list-productos li{
+    
+}
+            ul.list-categoria li{
+                margin: 0px;
+        }
+}
